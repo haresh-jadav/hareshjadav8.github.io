@@ -1,244 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>MARS MISSION CONTROL | Haresh Jadav</title>
-
-<style>
-/* ================= GLOBAL ================= */
-body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: radial-gradient(ellipse at center, #05070f, #000000);
-    color: #ffffff;
-    overflow-x: hidden;
-}
-
-/* STAR FIELD BACKGROUND */
-body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-image: url("https://raw.githubusercontent.com/JulianLaval/canvas-particle-network/master/img/stars.png");
-    opacity: 0.15;
-    z-index: 0;
-}
-
-/* ================= TOP NAV (NASA STYLE) ================= */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 12px;
-    background: rgba(0,0,0,0.85);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
-
-nav button {
-    background: transparent;
-    border: 1px solid rgba(255, 80, 50, 0.5);
-    color: #ffffff;
-    padding: 8px 14px;
-    margin: 5px;
-    cursor: pointer;
-    letter-spacing: 1px;
-    font-size: 12px;
-    transition: 0.3s;
-    text-transform: uppercase;
-}
-
-nav button:hover {
-    background: #ff3b1f;
-    box-shadow: 0 0 15px #ff3b1f;
-}
-
-/* ================= MARS SECTION ================= */
-#mars-container {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Mars planet */
-#mars {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    background: url("https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg");
-    background-size: cover;
-    box-shadow: 0 0 80px rgba(255, 80, 40, 0.4);
-    position: relative;
-}
-
-/* Orbit ring */
-.orbit {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 420px;
-    height: 420px;
-    margin-left: -210px;
-    margin-top: -210px;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 50%;
-    animation: rotate 18s linear infinite;
-}
-
-/* Satellite */
-.satellite {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 14px;
-    height: 14px;
-    background: #cfd8dc;
-    border-radius: 50%;
-    box-shadow: 0 0 12px #ffffff;
-}
-
-/* orbit animation */
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* ================= PANELS ================= */
-section {
-    display: none;
-    padding: 120px 60px;
-    max-width: 1000px;
-    margin: auto;
-    position: relative;
-    z-index: 2;
-}
-
-section.active {
-    display: block;
-}
-
-/* NASA style panel */
-.panel {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-}
-
-h1 {
-    color: #ff4b2b;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 22px;
-}
-
-p {
-    color: #d0d0d0;
-    line-height: 1.6;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haresh Jadav | Physics & Mars Research</title>
 </head>
 
-<body>
+<body style="margin:0; font-family:Arial, sans-serif; line-height:1.6;">
 
 <!-- NAVIGATION -->
-<nav>
-    <button onclick="show('home')">HOME</button>
-    <button onclick="show('about')">ABOUT</button>
-    <button onclick="show('research')">RESEARCH</button>
-    <button onclick="show('awards')">AWARDS</button>
-    <button onclick="show('mars')">MARS</button>
-    <button onclick="show('software')">SOFTWARE</button>
-    <button onclick="show('links')">LINKS</button>
-    <button onclick="show('join')">JOIN</button>
-    <button onclick="show('others')">OTHERS</button>
-</nav>
-
-<!-- MARS VISUAL (always visible background centerpiece) -->
-<div id="mars-container">
-    <div id="mars"></div>
-    <div class="orbit">
-        <div class="satellite"></div>
-    </div>
+<div style="position:sticky; top:0; background:#ffffff; padding:12px; border-bottom:1px solid #ddd; text-align:center;">
+  <a href="#home">Home</a> |
+  <a href="#about">About</a> |
+  <a href="#research">Research</a> |
+  <a href="#projects">Projects</a> |
+  <a href="#blog">Mars Blog</a> |
+  <a href="#contact">Contact</a>
 </div>
 
-<!-- SECTIONS -->
-<section id="home" class="active">
-    <div class="panel">
-        <h1>Mission Home</h1>
-        <p>NASA-style research dashboard for Mars exploration, nanomaterials, and astrophysics simulations.</p>
-    </div>
+<!-- HOME -->
+<section id="home" style="padding:60px; text-align:center; background:#f5f7fa;">
+  <h1 style="font-size:40px;">Haresh Jadav</h1>
+  <h3>Physics Researcher | Mars • Astrophysics • Planetary Science</h3>
+  <p>Building research in space science and planetary exploration</p>
+
+  <img src="https://via.placeholder.com/180" style="border-radius:50%; margin-top:20px;">
 </section>
 
-<section id="about">
-    <div class="panel">
-        <h1>About Mission Scientist</h1>
-        <p>Working on rGO-based energy systems, Mars hydrogen generation (HER/OER), and planetary materials science.</p>
-    </div>
+<!-- ABOUT -->
+<section id="about" style="padding:60px;">
+  <h2>About Me</h2>
+  <p>
+    I am a Physics researcher interested in Mars science, astrophysics,
+    planetary atmospheres, and space exploration. My goal is to pursue
+    a PhD in planetary science and contribute to Mars exploration missions.
+  </p>
 </section>
 
-<section id="research">
-    <div class="panel">
-        <h1>Research Division</h1>
-        <p>Focus: graphene-based catalysts, electrochemical hydrogen production, Mars surface chemistry modeling.</p>
-    </div>
+<!-- RESEARCH -->
+<section id="research" style="padding:60px; background:#f9f9f9;">
+  <h2>Research Experience</h2>
+  <ul>
+    <li>Solar rotation and sunspot analysis</li>
+    <li>FESEM / EDX material characterization</li>
+    <li>Condensed matter physics research</li>
+    <li>Remote sensing training (ISRO - IIRS)</li>
+  </ul>
 </section>
 
-<section id="awards">
-    <div class="panel">
-        <h1>Recognition</h1>
-        <p>Academic achievements, publications, and research milestones.</p>
-    </div>
+<!-- PROJECTS -->
+<section id="projects" style="padding:60px;">
+  <h2>Projects</h2>
+  <ul>
+    <li>Solar physics data analysis</li>
+    <li>Materials research using XRD and EDX</li>
+    <li>Mars planetary science study</li>
+  </ul>
 </section>
 
-<section id="mars">
-    <div class="panel">
-        <h1>Mars Mission</h1>
-        <p>Simulated Mars orbit systems, atmospheric chemistry, and hydrogen extraction research.</p>
-    </div>
+<!-- BLOG -->
+<section id="blog" style="padding:60px; background:#f9f9f9;">
+  <h2>Mars Blog 🪐</h2>
+  <p>Daily updates on Mars missions, NASA discoveries, and personal research notes.</p>
+
+  <ul>
+    <li>NASA Mars Rover updates</li>
+    <li>ISRO planetary exploration news</li>
+    <li>My learning notes in planetary science</li>
+  </ul>
 </section>
 
-<section id="software">
-    <div class="panel">
-        <h1>Software Stack</h1>
-        <p>Python • MATLAB • OriginLab • VESTA • XRD • Materials Project tools</p>
-    </div>
+<!-- CONTACT -->
+<section id="contact" style="padding:60px;">
+  <h2>Contact</h2>
+  <p>Email: yourmail@gmail.com</p>
 </section>
 
-<section id="links">
-    <div class="panel">
-        <h1>Mission Links</h1>
-        <p>NASA • ESA • arXiv • Materials Project • Science journals</p>
-    </div>
-</section>
-
-<section id="join">
-    <div class="panel">
-        <h1>Join Mission</h1>
-        <p>Collaborate in Mars research, nanomaterials, and electrochemical systems.</p>
-    </div>
-</section>
-
-<section id="others">
-    <div class="panel">
-        <h1>Additional Data</h1>
-        <p>Blogs, ideas, experiments, and future mission concepts.</p>
-    </div>
-</section>
-
-<script>
-function show(id){
-    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-}
-</script>
+<!-- FOOTER -->
+<footer style="text-align:center; padding:20px; background:#111; color:white;">
+  © 2026 Haresh Jadav | Physics & Mars Research
+</footer>
 
 </body>
 </html>
