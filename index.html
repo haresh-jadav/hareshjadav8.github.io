@@ -1,186 +1,127 @@
-```html id="ksw4j2"
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Haresh Jadav | Mars Research Portfolio</title>
+<title>Haresh Jadav | Mars & Physics</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-    font-family:Arial,sans-serif;
-    color:white;
-    background:
-      radial-gradient(circle at 20% 20%, white 1px, transparent 2px),
-      radial-gradient(circle at 80% 40%, white 1px, transparent 2px),
-      radial-gradient(circle at 40% 70%, white 1px, transparent 2px),
-      linear-gradient(to bottom,#000010,#020b30,#000);
-    background-size:300px 300px;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
 }
 
-nav{
-    background:rgba(0,0,0,0.85);
-    padding:18px;
-    text-align:center;
-    box-shadow:0 0 20px rgba(255,153,51,0.4);
-    position:sticky;
-    top:0;
+/* NAV BAR */
+nav {
+    background: rgba(0,0,0,0.7);
+    padding: 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
 }
 
-nav button{
-    background:none;
-    border:1px solid #ff9933;
-    color:white;
-    padding:10px 14px;
-    margin:4px;
-    cursor:pointer;
-    border-radius:8px;
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin: 0 10px;
+    cursor: pointer;
 }
 
-nav button:hover{
-    background:#ff9933;
-    color:black;
+nav button:hover {
+    color: #ffcc66;
 }
 
-section{
-    display:none;
-    padding:50px;
-    margin:30px auto;
-    width:90%;
-    background:rgba(255,255,255,0.08);
-    border-radius:20px;
+/* SECTION BOX */
+section {
+    display: none;
+    padding: 60px;
+    background: rgba(0,0,0,0.6);
+    margin: 30px;
+    border-radius: 15px;
 }
 
-.active{display:block;}
+/* ACTIVE SECTION */
+.active {
+    display: block;
+}
 
-h1,h2{color:#ff9933;margin-bottom:20px;}
-p,li{font-size:18px;line-height:1.8;}
-ul{padding-left:25px;}
+/* TITLES */
+h1, h2, h3 {
+    color: #ffcc66;
+}
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-<button onclick="showSection('home')">Home</button>
-<button onclick="showSection('about')">About Me</button>
-<button onclick="showSection('research')">Research</button>
-<button onclick="showSection('awards')">Awards</button>
-<button onclick="showSection('blog')">Mars Blog</button>
-<button onclick="showSection('news')">News</button>
-<button onclick="showSection('software')">Software</button>
-<button onclick="showSection('links')">Useful Links</button>
-<button onclick="showSection('others')">Others</button>
-<button onclick="showSection('join')">Join</button>
+    <button onclick="show('home')">Home</button>
+    <button onclick="show('about')">About</button>
+    <button onclick="show('research')">Research</button>
+    <button onclick="show('projects')">Projects</button>
+    <button onclick="show('blog')">Mars Blog</button>
+    <button onclick="show('contact')">Contact</button>
 </nav>
 
+<!-- HOME -->
 <section id="home" class="active">
-<h1>Haresh Jadav</h1>
-<p><b>Assistant Professor of Physics | Mars Researcher | Astrophysics Enthusiast</b></p>
-<br>
-<p>
-Exploring Mars, planetary atmospheres, solar wind interactions, space weather,
-planetary evolution, and advanced materials for future space missions.
-</p>
+    <h1>Haresh Jadav</h1>
+    <h3>Physics | Mars | Astrophysics Researcher</h3>
+    <p>Exploring Mars, space physics and planetary science.</p>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-<h2>About Me</h2>
-<p>
-I am Haresh Jadav, currently working as an Assistant Professor of Physics at Parul University, Vadodara.
-My interdisciplinary expertise spans Physics, Planetary Science, Astrophysics, Space Science,
-Condensed Matter Physics, and Materials Science.
-<br><br>
-My primary research focuses on Mars ionosphere, magnetosphere, solar wind interaction,
-space weather, planetary evolution, solar system exploration, theoretical and observational
-planetary studies, instrument development for space missions, AI/ML applications in space science,
-advanced materials development for space applications, astronomy, astrophysics,
-Mars surface exploration, and planetary sample analysis.
-<br><br>
-I also have strong research experience in Condensed Matter Physics and Materials Science with
-hands-on expertise in advanced characterization instruments including XRD, SEM, FESEM, TGA,
-DSC, Raman spectroscopy, UV-Vis, FTIR, Mass Spectrometry, and more.
-<br><br>
-My long-term goal is to pursue a PhD in Physics focused on Mars research and contribute
-to major discoveries in planetary exploration and future space missions.
-</p>
+    <h2>About Me</h2>
+    <p>
+        I am a Physics researcher focused on Mars science, astrophysics,
+        planetary atmospheres, and space exploration missions.
+    </p>
 </section>
-```
-```html id="f2t9cm"
+
+<!-- RESEARCH -->
 <section id="research">
-<h2>Research Areas</h2>
-<ul>
-<li>Mars Ionosphere</li>
-<li>Mars Magnetosphere</li>
-<li>Solar Wind Interaction</li>
-<li>Space Weather</li>
-<li>Planetary Evolution</li>
-<li>Solar System Exploration</li>
-<li>Mars Surface Exploration</li>
-<li>Planetary Sample Analysis</li>
-<li>AI/ML in Space Science</li>
-<li>Materials for Space Applications</li>
-</ul>
+    <h2>Research Experience</h2>
+    <ul>
+        <li>Solar physics and sunspot analysis</li>
+        <li>FESEM / EDX material studies</li>
+        <li>Remote sensing training (ISRO)</li>
+    </ul>
 </section>
 
-<section id="awards">
-<h2>Awards / Certifications</h2>
-<ul>
-<li>Add your awards here</li>
-<li>ISRO Training</li>
-<li>NPTEL Certifications</li>
-</ul>
+<!-- PROJECTS -->
+<section id="projects">
+    <h2>Projects</h2>
+    <ul>
+        <li>Mars atmospheric study</li>
+        <li>Solar rotation research</li>
+        <li>Materials characterization (XRD/EDX)</li>
+    </ul>
 </section>
 
+<!-- BLOG -->
 <section id="blog">
-<h2>Mars Blog</h2>
-<p>Articles, Mars mission updates, research notes, and scientific discussions.</p>
+    <h2>Mars Blog 🪐</h2>
+    <p>Daily Mars missions, NASA updates, ISRO discoveries and notes.</p>
 </section>
 
-<section id="news">
-<h2>News</h2>
-<p>Latest news from Mars missions, astronomy, and space exploration.</p>
-</section>
-
-<section id="software">
-<h2>Software</h2>
-<ul>
-<li>Python</li>
-<li>MATLAB</li>
-<li>Origin</li>
-<li>VESTA</li>
-<li>PowDLL</li>
-</ul>
-</section>
-
-<section id="links">
-<h2>Useful Links</h2>
-<ul>
-<li><a href="https://www.nasa.gov" target="_blank">NASA</a></li>
-<li><a href="https://www.isro.gov.in" target="_blank">ISRO</a></li>
-<li><a href="https://mars.nasa.gov" target="_blank">Mars Exploration Program</a></li>
-</ul>
-</section>
-
-<section id="others">
-<h2>Others</h2>
-<p>Conference participation, workshops, publications, outreach, and collaborations.</p>
-</section>
-
-<section id="join">
-<h2>Join / Contact</h2>
-<p>Interested in collaboration, research, internships, or PhD opportunities? Contact me.</p>
-<p>Email: yourmail@gmail.com</p>
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: yourmail@gmail.com</p>
 </section>
 
 <script>
-function showSection(id){
-    document.querySelectorAll('section').forEach(sec=>{
-        sec.classList.remove('active');
-    });
-    document.getElementById(id).classList.add('active');
+function show(id) {
+    let sections = document.querySelectorAll("section");
+    sections.forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
 }
 </script>
 
