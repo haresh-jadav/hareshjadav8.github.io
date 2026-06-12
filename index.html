@@ -2,137 +2,102 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Mars NASA Portfolio</title>
+<title>Haresh Jadav | Space Research</title>
 
 <style>
+/* 🌌 DARK ASTRO BACKGROUND */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  color: white;
-  overflow: hidden;
-  background: url("https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3") no-repeat center center fixed;
-  background-size: cover;
+  color: #eaeaea;
+  background: radial-gradient(ellipse at bottom, #0b0f1a 0%, #000000 100%);
+  overflow-x: hidden;
 }
 
-/* ================= NAVBAR ================= */
+/* ✨ STAR FIELD */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: transparent;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(1px 1px at 100px 80px, white, transparent),
+    radial-gradient(1px 1px at 200px 150px, white, transparent),
+    radial-gradient(2px 2px at 300px 200px, white, transparent),
+    radial-gradient(1px 1px at 400px 250px, white, transparent);
+  background-repeat: repeat;
+  opacity: 0.25;
+  animation: starsMove 120s linear infinite;
+  z-index: -1;
+}
+
+@keyframes starsMove {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
+}
+
+/* 🧭 NAVIGATION (IUCAA STYLE) */
 nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(10, 15, 25, 0.95);
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  padding: 15px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
   z-index: 1000;
 }
 
 nav button {
-  background: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 8px 14px;
+  background: none;
+  border: none;
+  color: #cfd8ff;
+  padding: 10px 14px;
   cursor: pointer;
-  transition: 0.3s;
+  font-size: 14px;
 }
 
 nav button:hover {
-  background: white;
-  color: black;
+  color: #4dd0ff;
 }
 
-/* ================= SECTIONS ================= */
+/* 📄 SECTIONS */
 section {
   display: none;
-  position: absolute;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  text-align: center;
+  padding: 120px 10% 60px;
+  line-height: 1.6;
 }
 
 section.active {
   display: block;
 }
 
-/* ================= PLANETS ================= */
-.space {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.planet {
-  position: absolute;
-  border-radius: 50%;
-  background-size: cover;
-  opacity: 0.9;
-}
-
-.planet1 {
-  width: 140px;
-  height: 140px;
-  top: 20%;
-  left: -150px;
-  background: url("https://mars.nasa.gov/system/resources/detail_files/25442_PIA25681.jpg");
-  animation: move1 70s linear infinite;
-}
-
-.planet2 {
-  width: 80px;
-  height: 80px;
-  top: 60%;
-  left: -120px;
-  background: url("https://upload.wikimedia.org/wikipedia/commons/2/2e/Neptune.jpg");
-  animation: move2 100s linear infinite;
-}
-
-.planet3 {
-  width: 50px;
-  height: 50px;
-  top: 40%;
-  left: -100px;
-  background: url("https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg");
-  animation: move3 120s linear infinite;
-}
-
-@keyframes move1 {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(120vw); }
-}
-
-@keyframes move2 {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(130vw); }
-}
-
-@keyframes move3 {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(140vw); }
-}
-
-/* ================= PROFILE IMAGE ================= */
-.profile-img {
+/* 👤 PROFILE */
+.profile {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  border: 3px solid white;
+  border: 2px solid #4dd0ff;
   margin-top: 20px;
+  box-shadow: 0 0 20px rgba(77,208,255,0.3);
+}
+
+/* 🌟 HEADINGS */
+h1 {
+  color: #ffffff;
+}
+
+h2 {
+  color: #4dd0ff;
 }
 </style>
 </head>
 
 <body>
-
-<!-- 🌌 SPACE BACKGROUND -->
-<div class="space">
-  <div class="planet planet1"></div>
-  <div class="planet planet2"></div>
-  <div class="planet planet3"></div>
-</div>
 
 <!-- 🧭 NAVIGATION -->
 <nav>
@@ -142,71 +107,83 @@ section.active {
   <button onclick="show('awards')">Awards</button>
   <button onclick="show('mars')">Mars</button>
   <button onclick="show('software')">Software</button>
-  <button onclick="show('links')">Useful Link</button>
+  button onclick="show('links')">Useful Links</button>
   <button onclick="show('join')">Join</button>
   <button onclick="show('others')">Others</button>
 </nav>
 
 <!-- 🏠 HOME -->
 <section id="home" class="active">
-  <h1>Welcome to My NASA Style Portfolio 🚀</h1>
-  <img class="profile-img" src="YOUR_GITHUB_IMAGE_LINK_HERE" alt="Profile">
-  <p>Exploring Mars, Physics & Space Research</p>
+  <h1>Haresh Jadav</h1>
+
+  <!-- 👤 YOUR GITHUB PHOTO -->
+  <img class="profile"
+       src="https://github.com/YOUR-GITHUB-USERNAME.png">
+
+  <p>Space Science • Materials Science • Mars Research</p>
 </section>
 
 <!-- 👤 ABOUT -->
 <section id="about">
   <h1>About Me</h1>
-  <p>I am a researcher focused on Mars, materials science and space applications.</p>
+  <p>
+    I am working in advanced materials, reduced graphene oxide systems,
+    Mars surface chemistry and hydrogen generation research (HER/OER).
+  </p>
 </section>
 
 <!-- 🔬 RESEARCH -->
 <section id="research">
   <h1>Research</h1>
-  <p>Working on rGO for hydrogen generation, energy storage and Mars applications.</p>
+  <p>
+    Focused on electrochemical energy systems, supercapacitors,
+    and planetary surface reaction modeling for Mars environments.
+  </p>
 </section>
 
 <!-- 🏆 AWARDS -->
 <section id="awards">
   <h1>Awards</h1>
-  <p>Coming soon...</p>
+  <p>Academic achievements and recognitions will be updated soon.</p>
 </section>
 
 <!-- 🪐 MARS -->
 <section id="mars">
-  <h1>Mars Exploration</h1>
-  <p>Studying Mars surface chemistry and hydrogen production systems.</p>
+  <h1>Mars Research</h1>
+  <p>
+    Studying hydrogen evolution reaction (HER/OER) on Mars-like conditions
+    using advanced nanomaterials.
+  </p>
 </section>
 
 <!-- 💻 SOFTWARE -->
 <section id="software">
   <h1>Software</h1>
-  <p>Python, MATLAB, Materials Studio, VESTA</p>
+  <p>Python • MATLAB • VESTA • Materials Studio • Origin</p>
 </section>
 
 <!-- 🔗 LINKS -->
 <section id="links">
   <h1>Useful Links</h1>
-  <p>NASA, arXiv, GitHub, ResearchGate</p>
+  <p>NASA • IUCAA • arXiv • ResearchGate • GitHub</p>
 </section>
 
 <!-- 🤝 JOIN -->
 <section id="join">
   <h1>Join</h1>
-  <p>Collaborate with me on space research projects.</p>
+  <p>Open for collaboration in space science and materials research.</p>
 </section>
 
 <!-- 🔍 OTHERS -->
 <section id="others">
   <h1>Others</h1>
-  <p>Extra space science notes and updates.</p>
+  <p>Extra research notes, ideas, and ongoing projects.</p>
 </section>
 
-<!-- JS SECTION SWITCH -->
 <script>
 function show(id) {
   let sections = document.querySelectorAll("section");
-  sections.forEach(sec => sec.classList.remove("active"));
+  sections.forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
 </script>
