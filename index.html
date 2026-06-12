@@ -2,191 +2,136 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Haresh Jadav | Space Research</title>
+<title>Haresh Jadav | Astrophysics & Mars Research</title>
 
 <style>
-/* 🌌 DARK ASTRO BACKGROUND */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: #eaeaea;
-  background: radial-gradient(ellipse at bottom, #0b0f1a 0%, #000000 100%);
-  overflow-x: hidden;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #050814;
+    color: white;
+    scroll-behavior: smooth;
 }
 
-/* ✨ STAR FIELD */
-body::before {
-  content: "";
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  background: transparent;
-  background-image:
-    radial-gradient(2px 2px at 20px 30px, white, transparent),
-    radial-gradient(1px 1px at 100px 80px, white, transparent),
-    radial-gradient(1px 1px at 200px 150px, white, transparent),
-    radial-gradient(2px 2px at 300px 200px, white, transparent),
-    radial-gradient(1px 1px at 400px 250px, white, transparent);
-  background-repeat: repeat;
-  opacity: 0.25;
-  animation: starsMove 120s linear infinite;
-  z-index: -1;
-}
-
-@keyframes starsMove {
-  from { transform: translateY(0); }
-  to { transform: translateY(-200px); }
-}
-
-/* 🧭 NAVIGATION (IUCAA STYLE) */
+/* NAVBAR */
 nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(10, 15, 25, 0.95);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  z-index: 1000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.85);
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
 }
 
-nav button {
-  background: none;
-  border: none;
-  color: #cfd8ff;
-  padding: 10px 14px;
-  cursor: pointer;
-  font-size: 14px;
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-nav button:hover {
-  color: #4dd0ff;
+nav a:hover {
+    color: #00d9ff;
 }
 
-/* 📄 SECTIONS */
+/* SECTION */
 section {
-  display: none;
-  padding: 120px 10% 60px;
-  line-height: 1.6;
+    padding: 100px 20px;
+    min-height: 100vh;
 }
 
-section.active {
-  display: block;
+/* HOME */
+#home {
+    background: url('https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3') center/cover;
+    text-align: center;
 }
 
-/* 👤 PROFILE */
 .profile {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 2px solid #4dd0ff;
-  margin-top: 20px;
-  box-shadow: 0 0 20px rgba(77,208,255,0.3);
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 80px;
+    border: 3px solid white;
 }
 
-/* 🌟 HEADINGS */
-h1 {
-  color: #ffffff;
+/* TITLES */
+h1, h2 {
+    color: #00d9ff;
 }
 
-h2 {
-  color: #4dd0ff;
+.box {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🧭 NAVIGATION -->
+<!-- NAV -->
 <nav>
-  <button onclick="show('home')">Home</button>
-  <button onclick="show('about')">About Me</button>
-  <button onclick="show('research')">Research</button>
-  <button onclick="show('awards')">Awards</button>
-  <button onclick="show('mars')">Mars</button>
-  <button onclick="show('software')">Software</button>
-  button onclick="show('links')">Useful Links</button>
-  <button onclick="show('join')">Join</button>
-  <button onclick="show('others')">Others</button>
+    <a href="#home">Home</a>
+    <a href="#about">Bio</a>
+    <a href="#research">Research</a>
+    <a href="#awards">Awards & Honours</a>
+    <a href="#awards">Mars</a>
+    <a href="#contact">Contact</a>
+     <a href="#awards">Others</a>
 </nav>
 
-<!-- 🏠 HOME -->
-<section id="home" class="active">
-  <h1>Haresh Jadav</h1>
-
-  <!-- 👤 YOUR GITHUB PHOTO -->
-  <img class="profile"
-       src="https://github.com/YOUR-GITHUB-USERNAME.png">
-
-  <p>Space Science • Materials Science • Mars Research</p>
+<!-- HOME -->
+<section id="home">
+    <img src="YOUR_GITHUB_IMAGE_LINK_HERE" class="profile">
+    <h1>Mr. Haresh R Jadav</h1>
+    <p>Planetary & Astrophysicist Physicist| Mars Exploration | Space Science</p>
+    <p>Assistant Professor</p>
+    <p>Department of Physics, Parul University Vadodara</p>
 </section>
 
-<!-- 👤 ABOUT -->
-<section id="about">
-  <h1>About Me</h1>
-  <p>
-    I am working in advanced materials, reduced graphene oxide systems,
-    Mars surface chemistry and hydrogen generation research (HER/OER).
-  </p>
+<!-- Bio -->
+<section id="bio">
+    <div class="box">
+        <h2>Bio</h2>
+        <p> Researcher in Space, Planetary and Astrophysics. Presently Assistant Professor at the Parul University Vadodara, Gujarat, India, and also member of several international societies and collaborations</p>
+           <!-- LANGUAGES -->
+      <h3 style="color:#00c6ff;">Languages</h3>
+      <p style="color:#ccc;">
+        English, Hindi, Gujarati </p>
+    </div>
 </section>
 
-<!-- 🔬 RESEARCH -->
+<!-- RESEARCH -->
 <section id="research">
-  <h1>Research</h1>
-  <p>
-    Focused on electrochemical energy systems, supercapacitors,
-    and planetary surface reaction modeling for Mars environments.
-  </p>
+    <div class="box">
+        <h2>Research</h2>
+        <p>
+            - Mars Hydrogen generation (HER/OER)<br>
+            - Space materials (rGO applications)<br>
+            - Astrophysical simulations<br>
+        </p>
+    </div>
 </section>
 
-<!-- 🏆 AWARDS -->
+<!-- AWARDS -->
 <section id="awards">
-  <h1>Awards</h1>
-  <p>Academic achievements and recognitions will be updated soon.</p>
+    <div class="box">
+        <h2>Awards</h2>
+        <p>
+            Add your achievements here.
+        </p>
+    </div>
 </section>
 
-<!-- 🪐 MARS -->
-<section id="mars">
-  <h1>Mars Research</h1>
-  <p>
-    Studying hydrogen evolution reaction (HER/OER) on Mars-like conditions
-    using advanced nanomaterials.
-  </p>
+<!-- CONTACT -->
+<section id="contact">
+    <div class="box">
+        <h2>Contact</h2>
+        <p>Email: yourmail@gmail.com</p>
+    </div>
 </section>
-
-<!-- 💻 SOFTWARE -->
-<section id="software">
-  <h1>Software</h1>
-  <p>Python • MATLAB • VESTA • Materials Studio • Origin</p>
-</section>
-
-<!-- 🔗 LINKS -->
-<section id="links">
-  <h1>Useful Links</h1>
-  <p>NASA • IUCAA • arXiv • ResearchGate • GitHub</p>
-</section>
-
-<!-- 🤝 JOIN -->
-<section id="join">
-  <h1>Join</h1>
-  <p>Open for collaboration in space science and materials research.</p>
-</section>
-
-<!-- 🔍 OTHERS -->
-<section id="others">
-  <h1>Others</h1>
-  <p>Extra research notes, ideas, and ongoing projects.</p>
-</section>
-
-<script>
-function show(id) {
-  let sections = document.querySelectorAll("section");
-  sections.forEach(s => s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-}
-</script>
 
 </body>
 </html>
