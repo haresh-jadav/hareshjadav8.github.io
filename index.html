@@ -5,95 +5,72 @@
 <title>Haresh Jadav | Mars & Physics</title>
 
 <style>
-/* SPACE ANIMATION BACKGROUND */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     color: white;
-    overflow-x: hidden;
+    overflow: hidden;
     background: black;
 }
 
-/* STAR FIELD */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(white 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: starsMove 120s linear infinite;
-    opacity: 0.2;
-    z-index: -2;
-}
-
-@keyframes starsMove {
-    from { transform: translate(0,0); }
-    to { transform: translate(-500px, -500px); }
-}
-
-/* NEBULA GLOW */
-body::after {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,100,255,0.2), transparent 40%),
-                radial-gradient(circle at 70% 60%, rgba(0,150,255,0.2), transparent 40%);
-    z-index: -1;
-}
-
-/* NAV BAR */
+/* NAV */
 nav {
-    background: rgba(0,0,0,0.6);
-    padding: 15px;
-    text-align: center;
-    position: sticky;
+    position: fixed;
     top: 0;
-    backdrop-filter: blur(8px);
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    padding: 12px;
+    text-align: center;
+    z-index: 10;
 }
 
 nav button {
     background: none;
     border: none;
     color: white;
-    font-size: 16px;
     margin: 0 10px;
+    font-size: 16px;
     cursor: pointer;
 }
 
 nav button:hover {
-    color: #00d9ff;
+    color: orange;
 }
 
-/* SECTION BOX */
+/* SECTIONS */
 section {
     display: none;
-    padding: 60px;
-    background: rgba(0,0,0,0.6);
-    margin: 30px;
-    border-radius: 15px;
-    border: 1px solid rgba(255,255,255,0.1);
+    padding: 80px 40px;
+    margin-top: 60px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 12px;
 }
 
-/* ACTIVE SECTION */
 .active {
     display: block;
 }
 
 /* TITLES */
 h1, h2, h3 {
-    color: #00d9ff;
-    text-shadow: 0 0 10px rgba(0,217,255,0.5);
+    color: orange;
+}
+
+/* CANVAS BACKGROUND */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
+<!-- BACKGROUND ANIMATION -->
+<canvas id="space"></canvas>
+
+<!-- NAV -->
 <nav>
     <button onclick="show('home')">Home</button>
     <button onclick="show('about')">About</button>
@@ -103,60 +80,113 @@ h1, h2, h3 {
     <button onclick="show('contact')">Contact</button>
 </nav>
 
-<!-- HOME -->
+<!-- SECTIONS -->
 <section id="home" class="active">
     <h1>Haresh Jadav</h1>
-    <h3>Physics | Mars | Astrophysics Researcher</h3>
-    <p>Exploring Mars, space physics and planetary science.</p>
+    <h3>Mars | Physics | Astrophysics Researcher</h3>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-    <h2>About Me</h2>
-    <p>
-        I am a Physics researcher focused on Mars science, astrophysics,
-        planetary atmospheres, and space exploration missions.
-    </p>
+    <h2>About</h2>
+    <p>Mars and planetary science researcher.</p>
 </section>
 
-<!-- RESEARCH -->
 <section id="research">
-    <h2>Research Experience</h2>
-    <ul>
-        <li>Solar physics and sunspot analysis</li>
-        <li>FESEM / EDX material studies</li>
-        <li>Remote sensing training (ISRO)</li>
-    </ul>
+    <h2>Research</h2>
+    <p>Solar physics, FESEM, Mars atmosphere studies.</p>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
     <h2>Projects</h2>
-    <ul>
-        <li>Mars atmospheric study</li>
-        <li>Solar rotation research</li>
-        <li>Materials characterization (XRD/EDX)</li>
-    </ul>
+    <p>Mars atmospheric and material research.</p>
 </section>
 
-<!-- BLOG -->
 <section id="blog">
-    <h2>Mars Blog 🪐</h2>
-    <p>Daily Mars missions, NASA updates, ISRO discoveries and notes.</p>
+    <h2>Mars Blog</h2>
+    <p>NASA + ISRO updates and Mars exploration notes.</p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
     <h2>Contact</h2>
-    <p>Email: yourmail@gmail.com</p>
+    <p>yourmail@gmail.com</p>
 </section>
 
 <script>
 function show(id) {
-    let sections = document.querySelectorAll("section");
-    sections.forEach(s => s.classList.remove("active"));
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
 }
+
+/* =========================
+   MARS + SATELLITE ANIMATION
+========================= */
+
+const canvas = document.getElementById("space");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let centerX = canvas.width / 2;
+let centerY = canvas.height / 2;
+
+let angle = 0;
+
+// Mars properties
+const marsRadius = 70;
+
+// orbit radius
+const orbitRadius = 180;
+
+function drawMars() {
+    const gradient = ctx.createRadialGradient(centerX, centerY, 10, centerX, centerY, marsRadius);
+    gradient.addColorStop(0, "#ff7b3a");
+    gradient.addColorStop(1, "#8b2e1a");
+
+    ctx.beginPath();
+    ctx.fillStyle = gradient;
+    ctx.arc(centerX, centerY, marsRadius, 0, Math.PI * 2);
+    ctx.fill();
+}
+
+// satellite
+function drawSatellite(x, y) {
+    ctx.fillStyle = "white";
+    ctx.fillRect(x - 6, y - 2, 12, 4); // body
+    ctx.fillRect(x - 10, y - 6, 6, 2); // solar panel
+    ctx.fillRect(x + 4, y - 6, 6, 2);  // solar panel
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // stars
+    for (let i = 0; i < 100; i++) {
+        ctx.fillStyle = "white";
+        ctx.fillRect(Math.random() * canvas.width, Math.random() * canvas.height, 1, 1);
+    }
+
+    drawMars();
+
+    // satellite orbit
+    let x = centerX + orbitRadius * Math.cos(angle);
+    let y = centerY + orbitRadius * Math.sin(angle);
+
+    drawSatellite(x, y);
+
+    angle += 0.01;
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    centerX = canvas.width / 2;
+    centerY = canvas.height / 2;
+});
 </script>
 
 </body>
